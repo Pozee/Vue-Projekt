@@ -1,12 +1,14 @@
+import '@babel/polyfill'
+import 'mutationobserver-shim'
 import Vue from 'vue'
-import Vuelidate from 'vuelidate'
+import './plugins/bootstrap-vue'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App.vue'
 
-Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app') 
