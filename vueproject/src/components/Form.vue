@@ -61,11 +61,7 @@
         </div>
       </div>
 
-      <button
-        class="btn btn-primary"
-        :disabled="!formIsValid"
-        @click.prevent="addTask"
-      >Add Task</button>
+      <button class="btn btn-primary" :disabled="!formIsValid" @click.prevent="addTask">Add Task</button>
     </form>
 
     <div v-if="show">
@@ -76,6 +72,8 @@
       <br />Estimated execution time:
       <a>{{ time }}</a> hours!
       <br />GOOD LUCK TODAY!
+      <br />
+      <button class="btn btn-primary" @click="taskDone">Done</button>
     </div>
   </div>
 </template>
@@ -100,6 +98,16 @@ export default {
   methods: {
     addTask() {
       this.show = true;
+      this.localData();
+      this.task = JSON.parse(localStorage.getItem("task"));
+    },
+    localData: function() {
+      let parsed = JSON.stringify(this.task);
+      localStorage.setItem("task", parsed);
+    },
+    taskDone() {
+      localStorage.clear("task");
+      location.reload();
     }
   },
   computed: {
@@ -157,7 +165,6 @@ export default {
 </script>
 
 <style scoped>
-
 .error {
   color: red;
 }
