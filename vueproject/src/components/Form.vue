@@ -100,16 +100,40 @@ export default {
       this.show = true;
       this.localData();
       this.task = JSON.parse(localStorage.getItem("task"));
+      this.description = JSON.parse(localStorage.getItem("description"));
+      this.description = JSON.parse(localStorage.getItem("time"));
     },
     localData: function() {
       let parsedTask = JSON.stringify(this.task);
       localStorage.setItem("task", parsedTask);
+      let parsedDescription = JSON.stringify(this.description);
+      localStorage.setItem("description", parsedDescription);
+      let parsedTime = JSON.stringify(this.time);
+      localStorage.setItem("time", parsedTime);
     },
     taskDone() {
       localStorage.clear("task");
+      localStorage.clear("description");
+      localStorage.clear("time");
       location.reload();
+    },
+    checkLS() {
+      if (
+        localStorage.getItem("task") === null &&
+        localStorage.getItem("description") === null &&
+        localStorage.getItem("time") === null
+      ) {
+        console.log("Empty");
+      } else this.show = true;
+      this.task = JSON.parse(localStorage.getItem("task"));
+      this.description = JSON.parse(localStorage.getItem("description"));
+      this.time = JSON.parse(localStorage.getItem("time"));
     }
   },
+  mounted() {
+    this.checkLS();
+  },
+
   computed: {
     //TASK VALIDATION
     taskIsValid() {
