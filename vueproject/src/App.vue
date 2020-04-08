@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-	<Form />
+    <HeaderTimer />
+    <br><Form />
   </div>
 </template>
 
 <script>
-import Form from './components/Form.vue'
+import HeaderTimer from "./components/HeaderTimer.vue";
+import Form from "./components/Form.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-	Form
+    HeaderTimer,
+    Form
   }
-}
+};
 </script>
 
 <style>
@@ -22,6 +25,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 </style>
