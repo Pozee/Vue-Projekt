@@ -102,8 +102,8 @@ export default {
       this.task = JSON.parse(localStorage.getItem("task"));
     },
     localData: function() {
-      let parsed = JSON.stringify(this.task);
-      localStorage.setItem("task", parsed);
+      let parsedTask = JSON.stringify(this.task);
+      localStorage.setItem("task", parsedTask);
     },
     taskDone() {
       localStorage.clear("task");
