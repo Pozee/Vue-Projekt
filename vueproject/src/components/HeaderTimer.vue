@@ -1,17 +1,33 @@
 <template>
   <div>
     <div class="header">
-		<br><h1 class="timerClass">
-			{{ timer }}
-		</h1>
-	</div>
+      <br />
+      <h1>{{ timerCount }}</h1>
+      <button>Start</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "HeaderTimer",
-  props: ["timer", "state"]
+  data() {
+    return {
+      timerCount: 2700 / 60
+    };
+  },
+  watch: {
+    timerCount: {
+      handler(value) {
+        if (value > 0) {
+          setTimeout(() => {
+            this.timerCount--;
+          }, 1000);
+        }
+      },
+      immediate: true // This ensures the watcher is triggered upon creation
+    }
+  }
 };
 </script>
 
@@ -19,11 +35,7 @@ export default {
 .header {
   margin-top: 0;
   width: 100vw;
-  height: 100px;
+  height: 140px;
   background: lightcyan;
-}
-
-.timerClass{
-	
 }
 </style>

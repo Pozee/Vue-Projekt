@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderTimer :timer="formattedTime" :state="timerState" />
+	<HeaderTimer />
     <br />
     <Form />
   </div>
@@ -16,14 +16,6 @@ export default {
     HeaderTimer,
     Form
   },
-  data() {
-    return {
-      timerState: "stopped",
-      currentTimer: 0,
-      formattedTime: "00:00",
-      ticker: undefined
-    };
-  }
 };
 </script>
 
