@@ -3,7 +3,6 @@
     <div class="header">
       <br />
       <h1>{{ timerCount }}</h1>
-      <button>Start</button>
     </div>
   </div>
 </template>
@@ -13,7 +12,7 @@ export default {
   name: "HeaderTimer",
   data() {
     return {
-      timerCount: 2700 / 60
+      timerCount: 45
     };
   },
   watch: {
@@ -31,11 +30,12 @@ export default {
 };
 </script>
 
+
 <style>
 .header {
   margin-top: 0;
   width: 100vw;
-  height: 140px;
+  height: 100px;
   background: lightcyan;
 }
 </style>
