@@ -14,7 +14,7 @@ export default {
   name: "App",
   components: {
     HeaderTimer,
-    Form
+	Form,
   },
 };
 </script>
@@ -27,5 +27,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
+}
+
+#API2{
+	margin-top: 450px;
 }
 </style>
