@@ -2,8 +2,6 @@
   <div>
     <form v-if="!show">
       <div>
-        <h1>BREAK MANAGER</h1>
-
         <div class="form-group">
           <label>
             Task
@@ -61,11 +59,12 @@
         </div>
       </div>
 
-      <button class="btn btn-primary" :disabled="!formIsValid" @click.prevent="addTask">Add Task</button>
+      <button class="btn btn-primary" :disabled="!formIsValid" @click.prevent="addTask">Add Task</button> &nbsp;
     </form>
 
     <div v-if="show">
-      Task:
+      <h1>/här ska timer visas/</h1>
+      <br />Task:
       <a>{{ task }}</a>
       <br />Description:
       <a>{{ description }}</a>
@@ -74,13 +73,20 @@
       <br />GOOD LUCK TODAY!
       <br />
       <button class="btn btn-primary" @click="taskDone">Done</button>
+      <br />
+      <h1>/här ska activities visas när tiden på timern är slut/</h1>
+      <API2 />
     </div>
   </div>
 </template>
 
 <script>
+import API2 from "./API2.vue";
 export default {
   name: "Form",
+  components: {
+    API2
+  },
   props: {
     msg: String
   },
@@ -90,6 +96,7 @@ export default {
       description: "",
       time: "",
       show: false,
+      showButton: false,
       descrIsTouched: false,
       taskIsTouched: false,
       timeIsTouched: false
@@ -119,15 +126,17 @@ export default {
     },
     checkLS() {
       if (
-        localStorage.getItem("task") === null &&
-        localStorage.getItem("description") === null &&
+        localStorage.getItem("task") === null ||
+        localStorage.getItem("description") === null ||
         localStorage.getItem("time") === null
       ) {
         console.log("Empty");
-      } else this.show = true;
-      this.task = JSON.parse(localStorage.getItem("task"));
-      this.description = JSON.parse(localStorage.getItem("description"));
-      this.time = JSON.parse(localStorage.getItem("time"));
+      } else {
+        this.show = true;
+        this.task = JSON.parse(localStorage.getItem("task"));
+        this.description = JSON.parse(localStorage.getItem("description"));
+        this.time = JSON.parse(localStorage.getItem("time"));
+      }
     }
   },
   mounted() {
@@ -189,6 +198,9 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+	color: green;
+}
 .error {
   color: red;
 }
