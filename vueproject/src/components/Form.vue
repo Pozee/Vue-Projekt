@@ -72,20 +72,27 @@
       <a>{{ time }}</a> hours!
       <br />GOOD LUCK TODAY!
       <br />
+      <br />
       <button class="btn btn-primary" @click="taskDone">Done</button>
       <br />
       <h1>/här ska activities visas när tiden på timern är slut/</h1>
-      <API2 />
+
+      <div class="apis">
+        <API2 class="api2" />
+        <API3 class="api3" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import API2 from "./API2.vue";
+import API3 from "./API3.vue";
 export default {
   name: "Form",
   components: {
-    API2
+    API2,
+    API3
   },
   props: {
     msg: String
@@ -108,7 +115,7 @@ export default {
       this.localData();
       this.task = JSON.parse(localStorage.getItem("task"));
       this.description = JSON.parse(localStorage.getItem("description"));
-      this.description = JSON.parse(localStorage.getItem("time"));
+      this.time = JSON.parse(localStorage.getItem("time"));
     },
     localData: function() {
       let parsedTask = JSON.stringify(this.task);
@@ -199,7 +206,7 @@ export default {
 
 <style scoped>
 h1 {
-	color: green;
+  color: green;
 }
 .error {
   color: red;
@@ -218,5 +225,17 @@ form {
 label {
   position: fixed;
   left: 15%;
+}
+
+.apis {
+  display: flex;
+  justify-content: center;
+}
+
+.api2 {
+  margin-right: 10px;
+}
+.api3 {
+  margin-left: 10px;
 }
 </style>
