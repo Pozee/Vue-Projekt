@@ -1,7 +1,8 @@
 <template>
   <div>
     <button class="btn btn-primary" @click="showQuote">Kanye quote</button>
-
+	<br />
+	<br />
     <div v-if="show">{{ kanyeQuote.quote }}</div>
   </div>
 </template>
@@ -38,5 +39,4 @@ export default {
 </script>
 
 <style>
-
 </style>
