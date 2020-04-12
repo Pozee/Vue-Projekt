@@ -10,7 +10,7 @@
 
       <div>
         <br />
-        <p v-if="submitting">Submitting...</p>
+        <p v-if="posting">Posting...</p>
         <p v-for="ty in thanks" :key="ty.name">{{ ty.name }}</p>
       </div>
     </div>
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       thanks: [],
-      submitting: false,
+      posting: false,
       newThanks: "",
       show: false
     };
@@ -46,7 +46,7 @@ export default {
       });
     },
     addThanks() {
-      this.submitting = true;
+      this.posting = true;
       axios
         .post("https://jsonplaceholder.typicode.com/users", {
           name: this.newThanks
@@ -55,7 +55,7 @@ export default {
           const data = response.data;
           this.thanks.push(data);
           this.newThanks = "";
-          this.submitting = false;
+          this.posting = false;
         });
     },
     mounted() {
