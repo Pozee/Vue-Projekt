@@ -1,14 +1,14 @@
 <template>
   <div>
-    <button @click="getWeather">Get weather</button>
+    <button class="weatherBtn" @click="getWeather">Get weather</button>
     <div class="center">
-      <div class="weather-wrapper" v-if="model">
+      <div class="weather-wrapper" v-show="model">
         <div class="weather-info">
           <p class="location">{{ model.location }}</p>
-          <p class="temp">{{ model.temperature }}°C</p>
+          <p class="temp">{{ model.temperature }}</p>
         </div>
         <div class="img-wrapper">
-          <img :src="this.iconSrc" alt="Weather image" />
+          <img :src="this.iconSrc" />
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@ const WeatherUrl = "https://api.weatherbit.io/v2.0/current";
 const key = "d79c052c7b1e4e17a32efba7e6771a45";
 export default {
   data: () => ({
-    model: null,
+    model: true,
     iconSrc: null
   }),
   methods: {
@@ -29,10 +29,9 @@ export default {
         let response = await this.$http.get(WeatherUrl, {
           params: { city: "göteborg", key: key }
         });
-        console.log(response.data.data[0]);
         this.model = {
           time: response.data.data[0].datetime,
-          temperature: Math.round(response.data.data[0].app_temp),
+          temperature: Math.round(response.data.data[0].temp) + "°C",
           location: response.data.data[0].city_name,
           iconCode: response.data.data[0].weather.icon
         };
@@ -47,6 +46,7 @@ export default {
 
 <style scoped>
 .weather-wrapper {
+  height: 124px;
   width: 20em;
   margin-top: 1em;
   display: flex;

@@ -24,7 +24,6 @@ export default {
       try {
         let response = await this.$http.get(jokeUrl, config);
         this.joke = response.data.joke;
-        console.log(response);
       } catch (error) {
         console.log("Something went wrong", error);
       }
@@ -37,5 +36,8 @@ export default {
 .center {
   display: flex;
   justify-content: center;
+}
+.joke {
+  font-weight: 700;
 }
 </style>
