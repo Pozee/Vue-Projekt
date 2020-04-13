@@ -50,5 +50,6 @@ button{
 	background-color: lightskyblue;
 	border-radius: 5px;
 	color: white;
+	margin-top: 10px; 
 }
 </style>

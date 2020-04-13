@@ -73,18 +73,16 @@
       <br />GOOD LUCK TODAY!
       <br />
       <br />
-      <button  @click="taskDone">Done</button>
+      <button @click="taskDone">Done</button>
       <br />
       <br />
       <h4>/nedan ska "activities" visas när tiden på timern är slut, de syns just nu men tänker att de ska vara hidden eller disabled kanske?/</h4>
 
       <button
-        
         @click="showQuote(), activeBtn = 'btn1'"
         :class="{active: activeBtn === 'btn1' }"
       >Daily quote</button>
       <button
-       
         @click="showThankful(), activeBtn = 'btn2'"
         :class="{active: activeBtn === 'btn2' }"
       >Today I'm thankful for</button>
@@ -264,17 +262,18 @@ label {
   position: fixed;
   left: 15%;
 }
-button{
-	background-color: lightskyblue;
-	border-radius: 5px;
-	color: white;
+button {
+  background-color: lightskyblue;
+  border-radius: 5px;
+  color: white;
+  margin: 0 5px 0 5px;
 }
 .active {
-  border:2px solid pink;
+  border: 2px solid pink;
   color: white;
 }
 button:focus {
-	outline:0;
+  outline: 0;
 }
 /* .apis {
   display: flex;
