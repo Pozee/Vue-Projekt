@@ -21,7 +21,7 @@ const key = "d79c052c7b1e4e17a32efba7e6771a45";
 export default {
   data: () => ({
     model: null,
-    iconSrc: ""
+    iconSrc: null
   }),
   methods: {
     async getWeather() {
