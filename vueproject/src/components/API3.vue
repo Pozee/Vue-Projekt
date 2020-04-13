@@ -1,17 +1,18 @@
 <template>
   <div>
-    <button class="btn btn-primary" @click="showAPI3">Today I'm thankful for</button>
+    <!-- <button class="btn btn-primary" @click="showAPI3">Today I'm thankful for</button> -->
 
-    <div class="form" v-if="show">
+    <div class="form">
       <br />
       <input class="form-control" type="text" v-model="newThanks" /> &nbsp;
       <br />
-      <button class="btn btn-primary" @click="addThanks">Thank you!</button>
+      <button @click="addThanks">Thank you!</button>
 
       <div>
         <br />
         <p v-if="posting">Posting...</p>
         <p v-for="ty in thanks" :key="ty.name">{{ ty.name }}</p>
+
       </div>
     </div>
   </div>
@@ -33,9 +34,9 @@ export default {
     };
   },
   methods: {
-    showAPI3() {
-      this.show = true;
-    },
+    // showAPI3() {
+    //   this.show = true;
+    // },
     fetchThanks() {
       this.thanks = [];
       axios.get("https://jsonplaceholder.typicode.com/users").then(response => {
@@ -59,7 +60,8 @@ export default {
         });
     },
     mounted() {
-      this.fetchThanks;
+	// this.addThanks;
+    //   this.fetchThanks;
     }
   }
 };
@@ -70,5 +72,10 @@ export default {
   width: 50vw;
   position: fixed;
   left: 25%;
+}
+button{
+	background-color: lightskyblue;
+	border-radius: 5px;
+	color: white;
 }
 </style>

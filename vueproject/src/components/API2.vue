@@ -1,10 +1,13 @@
 <template>
   <div>
-    <button class="btn btn-primary" @click="showQuote">Daily Kanye quote</button>
-	<br />
-	<br />
-    <div class="quoteBox" v-if="show">
-		<p class="quote">{{ kanyeQuote.quote }}</p></div>
+    <div class="quotes">
+      <button @click="showQuote">Kanye quote</button>
+      <br />
+      <br />
+      <div class="quoteBox" v-if="show">
+        <p class="quote">{{ kanyeQuote.quote }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,11 +18,10 @@ export default {
   props: {
     msg: String
   },
-
   data() {
     return {
       kanyeQuote: "",
-      show: false
+      show: true
     };
   },
   methods: {
@@ -29,22 +31,24 @@ export default {
         .then(response => {
           console.log(response.data);
           this.kanyeQuote = response.data;
-          this.show = true;
           this.$emit("fetchKanyeQuote", this.kanyeQuote);
+          this.show = true;
         })
         .catch(error => {
           console.log(error);
         });
-    }
+	},
+	// mounted(){
+	// 	this.showQuote();
+	// }
   }
 };
 </script>
 
 <style>
-.quoteBox{
-	width: 150px;
-}
-.quoteBox.quote{
-	word-wrap: break-word;
+button{
+	background-color: lightskyblue;
+	border-radius: 5px;
+	color: white;
 }
 </style>
