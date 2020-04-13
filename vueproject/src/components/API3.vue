@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="btn btn-primary" @click="showAPI3">Today I'm thankful for</button>
+    <!-- <button class="btn btn-primary" @click="showAPI3">Today I'm thankful for</button> -->
 
     <div class="form" v-if="show">
       <br />
@@ -43,6 +43,7 @@ export default {
       axios.get("https://jsonplaceholder.typicode.com/users").then(response => {
         const data = response.data;
         this.thanks = data;
+        this.$emit("thankyou", this.thanks);
       });
     },
     addThanks() {

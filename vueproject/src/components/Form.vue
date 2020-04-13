@@ -78,7 +78,10 @@
       <h1>/här ska activities visas när tiden på timern är slut/</h1>
 
       <div class="apis">
-        <API2 class="api2" />
+        <API2 @thankyou="fetchThanks($event)" class="api2" />
+
+        <button class="btn btn-primary" @click="fetchThanks">Today I'm thankful for</button>
+
         <API3 class="api3" />
       </div>
     </div>
@@ -106,10 +109,14 @@ export default {
       showButton: false,
       descrIsTouched: false,
       taskIsTouched: false,
-      timeIsTouched: false
+      timeIsTouched: false,
+      getThanks: ""
     };
   },
   methods: {
+    fetchThanks(thankss) {
+      this.getThanks = thankss;
+    },
     addTask() {
       this.show = true;
       this.localData();

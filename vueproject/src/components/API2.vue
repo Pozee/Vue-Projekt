@@ -1,9 +1,10 @@
 <template>
   <div>
-    <button class="btn btn-primary" @click="showQuote">Kanye quote</button>
+    <button class="btn btn-primary" @click="showQuote">Daily Kanye quote</button>
 	<br />
 	<br />
-    <div v-if="show">{{ kanyeQuote.quote }}</div>
+    <div class="quoteBox" v-if="show">
+		<p class="quote">{{ kanyeQuote.quote }}</p></div>
   </div>
 </template>
 
@@ -39,4 +40,11 @@ export default {
 </script>
 
 <style>
+.quoteBox{
+	width: 150px;
+}
+
+.quoteBox.quote{
+	word-wrap: break-word;
+}
 </style>
