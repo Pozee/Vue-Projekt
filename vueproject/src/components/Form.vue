@@ -63,7 +63,7 @@
     </form>
 
     <div v-if="show">
-      <h1>/här ska timer visas/</h1>
+      <h4>/här ska timer visas/</h4>
       <br />Task:
       <a>{{ task }}</a>
       <br />Description:
@@ -75,7 +75,8 @@
       <br />
       <button class="btn btn-primary" @click="taskDone">Done</button>
       <br />
-      <h1>/här ska activities visas när tiden på timern är slut/</h1>
+      <br />
+      <h4>/nedan ska "activities" visas när tiden på timern är slut, de syns just nu men tänker att de ska vara hidden eller disabled kanske?/</h4>
 
       <div class="apis">
         <API2 class="api2" />
@@ -209,7 +210,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+h4 {
   color: green;
 }
 .error {
