@@ -55,7 +55,7 @@ export default {
 .weather-info {
   display: flex;
   padding: 0.5em;
-  padding-top: -1em;
+  margin-top: -1em;
   justify-content: center;
   flex-direction: column;
 }
