@@ -24,7 +24,6 @@ export default {
   props: {
     msg: String
   },
-
   data() {
     return {
       thanks: [],
@@ -39,10 +38,10 @@ export default {
     },
     fetchThanks() {
       this.thanks = [];
-
       axios.get("https://jsonplaceholder.typicode.com/users").then(response => {
         const data = response.data;
         this.thanks = data;
+        this.$emit("fetchthankyou", this.thanks);
       });
     },
     addThanks() {
@@ -56,6 +55,7 @@ export default {
           this.thanks.push(data);
           this.newThanks = "";
           this.posting = false;
+          this.$emit("addthankyou", this.newThanks);
         });
     },
     mounted() {

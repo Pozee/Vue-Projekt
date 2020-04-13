@@ -63,7 +63,7 @@
     </form>
 
     <div v-if="show">
-      <h1>/här ska timer visas/</h1>
+      <h4>/här ska timer visas/</h4>
       <br />Task:
       <a>{{ task }}</a>
       <br />Description:
@@ -75,11 +75,13 @@
       <br />
       <button class="btn btn-primary" @click="taskDone">Done</button>
       <br />
-      <h1>/här ska activities visas när tiden på timern är slut/</h1>
+      <br />
+      <h4>/nedan ska "activities" visas när tiden på timern är slut, de syns just nu men tänker att de ska vara hidden eller disabled kanske?/</h4>
 
       <div class="apis">
-        <API2 class="api2" />
-        <API3 class="api3" />
+        <API2 class="api2" @fetchKanyeQuote="showQuote($event)"/>
+
+        <API3 class="api3" @fetchthankyou="fetchThanks($event)" @addthankyou="addThanks($event)" />
       </div>
     </div>
   </div>
@@ -106,10 +108,25 @@ export default {
       showButton: false,
       descrIsTouched: false,
       taskIsTouched: false,
-      timeIsTouched: false
+      timeIsTouched: false,
+      getThanks: "",
+      addThankU: "",
+      showAPI3: false,
+      addQuote: ""
     };
   },
   methods: {
+    showQuote(kanye) {
+      this.addQuote = kanye;
+    },
+    addThanks(thanksss) {
+      this.addThankU = thanksss;
+      this.showAPI3 = true;
+    },
+    fetchThanks(thankss) {
+      this.getThanks = thankss;
+      this.showAPI3 = true;
+    },
     addTask() {
       this.show = true;
       this.localData();
@@ -149,7 +166,6 @@ export default {
   mounted() {
     this.checkLS();
   },
-
   computed: {
     //TASK VALIDATION
     taskIsValid() {
@@ -205,33 +221,28 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+h4 {
   color: green;
 }
 .error {
   color: red;
 }
-
 .success {
   color: green;
 }
-
 form {
   width: 70vw;
   position: fixed;
   left: 15%;
 }
-
 label {
   position: fixed;
   left: 15%;
 }
-
 .apis {
   display: flex;
   justify-content: center;
 }
-
 .api2 {
   margin-right: 10px;
 }
