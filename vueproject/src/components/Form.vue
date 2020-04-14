@@ -2,11 +2,16 @@
   <div>
     <form v-if="!show">
       <div>
+        <h1>Break Manager</h1>
         <div class="form-group">
           <label>
             Task
-            <small v-if="taskIsTouched && !taskIsValid" class="error">{{ taskErrorMessage }}</small>
-            <small v-if="taskIsTouched && taskIsValid" class="success">{{ taskMessage }}</small>
+            <small v-if="taskIsTouched && !taskIsValid" class="error">{{
+              taskErrorMessage
+            }}</small>
+            <small v-if="taskIsTouched && taskIsValid" class="success">{{
+              taskMessage
+            }}</small>
           </label>
           <br />
           <input
@@ -21,11 +26,12 @@
         <div class="form-group">
           <label>
             Description of task
-            <small
-              v-if="descrIsTouched && !descrIsValid"
-              class="error"
-            >{{ descrErrorMessage }}</small>
-            <small v-if="descrIsTouched && descrIsValid" class="success">{{ descrMessage }}</small>
+            <small v-if="descrIsTouched && !descrIsValid" class="error">{{
+              descrErrorMessage
+            }}</small>
+            <small v-if="descrIsTouched && descrIsValid" class="success">{{
+              descrMessage
+            }}</small>
           </label>
           <br />
           <textarea
@@ -42,11 +48,12 @@
         <div class="form-group">
           <label>
             Est. time to execute (h)
-            <small
-              v-if="timeIsTouched && !timeIsValid"
-              class="error"
-            >{{ timeErrorMessage }}</small>
-            <small v-if="timeIsTouched && timeIsValid" class="success">{{ timeMessage }}</small>
+            <small v-if="timeIsTouched && !timeIsValid" class="error">{{
+              timeErrorMessage
+            }}</small>
+            <small v-if="timeIsTouched && timeIsValid" class="success">{{
+              timeMessage
+            }}</small>
           </label>
           <br />
           <input
@@ -59,41 +66,63 @@
         </div>
       </div>
 
-      <button class="btn btn-primary" :disabled="!formIsValid" @click.prevent="addTask">Add Task</button> &nbsp;
+      <button
+        class="btn btn-primary"
+        :disabled="!formIsValid"
+        @click.prevent="addTask"
+      >
+        Add Task
+      </button>
+      &nbsp;
     </form>
 
     <div v-if="show">
-      <h4>/här ska timer visas/</h4>
+      <HeaderTimer />
       <br />Task:
       <a>{{ task }}</a>
       <br />Description:
       <a>{{ description }}</a>
-      <br />Estimated execution time:
-      <a>{{ time }}</a> hours!
-      <br />GOOD LUCK TODAY!
+      <br />Estimated execution time: <a>{{ time }}</a> hours! <br />GOOD LUCK
+      TODAY!
       <br />
       <br />
       <button class="btn btn-primary" @click="taskDone">Done</button>
       <br />
       <br />
-      <h4>/nedan ska "activities" visas när tiden på timern är slut, de syns just nu men tänker att de ska vara hidden eller disabled kanske?/</h4>
+      <!-- <h4>
+        /nedan ska "activities" visas när tiden på timern är slut, de syns just
+        nu men tänker att de ska vara hidden eller disabled kanske?/
+      </h4> -->
+     
+     
+      <!--lägga in en v-show eller v-if som visar apin när timer = 0 så att de inte syns innan -->
 
       <div class="apis">
         <API2 class="api2" />
-        <API3 class="api3" />
+        <!-- <API3 class="api3" /> -->
+        <div class="weather-joke">
+          <jokeApi class="jokeWrapper" />
+          <weather />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import weather from "./weather.vue";
+import jokeApi from "./jokeApi.vue";
+import HeaderTimer from "./HeaderTimer.vue";
 import API2 from "./API2.vue";
-import API3 from "./API3.vue";
+// import API3 from "./API3.vue";
 export default {
   name: "Form",
   components: {
     API2,
-    API3
+    // API3,
+    HeaderTimer,
+    jokeApi,
+    weather
   },
   props: {
     msg: String
@@ -223,18 +252,23 @@ h4 {
 
 form {
   width: 70vw;
-  position: fixed;
+  position: relative;
   left: 15%;
 }
 
 label {
-  position: fixed;
-  left: 15%;
+  position: relative;
+  float: left;
+  /* left: 15%; */
+  text-align: center;
 }
 
 .apis {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-content: center;
+  margin: 2em;
 }
 
 .api2 {

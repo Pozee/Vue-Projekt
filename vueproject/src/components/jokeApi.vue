@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="getJoke">Get joke</button>
+    <button class="btn btn-primary" @click="getJoke">Get joke</button>
     <div class="center">
-      <p class="joke">{{joke}}</p>
+      <p class="joke">{{ joke }}</p>
     </div>
   </div>
 </template>

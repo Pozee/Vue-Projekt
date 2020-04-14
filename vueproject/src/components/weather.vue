@@ -1,6 +1,8 @@
 <template>
   <div>
-    <button class="weatherBtn" @click="getWeather">Get weather</button>
+    <button class="weatherBtn btn btn-primary" @click="getWeather">
+      Get weather
+    </button>
     <div class="center">
       <div class="weather-wrapper" v-show="model">
         <div class="weather-info">

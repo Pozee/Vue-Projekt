@@ -1,33 +1,19 @@
 <template>
   <div id="app">
-	<HeaderTimer />
     <br />
     <Form />
     <br />
-    <weather />
-    <jokeApi class="jokeWrapper" />
   </div>
 </template>
 
 <script>
-
-import weather from "./components/weather.vue";
-import jokeApi from "./components/jokeApi.vue";
-import HeaderTimer from "./components/HeaderTimer.vue";
 import Form from "./components/Form.vue";
-
 
 export default {
   name: "App",
   components: {
-    weather,
-    jokeApi,
-    HeaderTimer,
-	  Form
-  }
-  
+    Form,
   },
-
 };
 </script>
 
@@ -39,10 +25,7 @@ export default {
   margin-top: 0px;
 }
 
-#API2{
-	margin-top: 450px;
-}
-.jokeWrapper {
-  margin-top: 2em;
+#API2 {
+  margin-top: 450px;
 }
 </style>
