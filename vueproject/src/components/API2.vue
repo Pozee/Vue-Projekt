@@ -1,10 +1,13 @@
 <template>
   <div>
-    <button class="btn btn-primary" @click="showQuote">Daily Kanye quote</button>
-	<br />
-	<br />
-    <div class="quoteBox" v-if="show">
-		<p class="quote">{{ kanyeQuote.quote }}</p></div>
+    <div class="quotes">
+      <button @click="showKanyeQuote">Kanye quote</button>
+      <br />
+      <br />
+      <div class="quoteBox" v-if="show">
+        <p class="quote">{{ kanyeQuote.quote }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,36 +18,38 @@ export default {
   props: {
     msg: String
   },
-
   data() {
     return {
       kanyeQuote: "",
-      show: false
+      show: true
     };
   },
   methods: {
-    showQuote() {
+    showKanyeQuote() {
       axios
         .get("https://api.kanye.rest/")
         .then(response => {
           console.log(response.data);
           this.kanyeQuote = response.data;
+          this.$emit("fetchKanyeQuote", this.kanyeQuote);
           this.show = true;
         })
         .catch(error => {
           console.log(error);
         });
-    }
+	},
   }
 };
 </script>
 
 <style>
-.quoteBox{
-	width: 150px;
+button{
+	background-color: lightskyblue;
+	border-radius: 5px;
+	color: white;
+	margin-top: 10px; 
 }
-
-.quoteBox.quote{
-	word-wrap: break-word;
+button:focus {
+  outline: 0;
 }
 </style>
