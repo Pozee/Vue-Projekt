@@ -89,7 +89,7 @@
       <button class="btn btn-primary" @click="taskDone">Done</button>
       <br />
       <br />
-      <!-- <h4>
+      <!-- <h4></h4>
         /nedan ska "activities" visas när tiden på timern är slut, de syns just
         nu men tänker att de ska vara hidden eller disabled kanske?/
       </h4> -->
