@@ -130,10 +130,6 @@ export default {
     };
   },
   methods: {
-    // showKanyeQuote() {
-    //   this.showKanyeQ = true;
-    //   console.log("hej");
-    // },
     showThankful() {
       this.showThanks = true;
       this.showKanyeQ = false;
@@ -269,7 +265,7 @@ button {
   margin: 0 5px 0 5px;
 }
 .active {
-  border: 2px solid pink;
+  border-bottom: 2px solid blue;
   color: white;
 }
 button:focus {

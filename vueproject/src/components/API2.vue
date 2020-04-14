@@ -38,9 +38,6 @@ export default {
           console.log(error);
         });
 	},
-	// mounted(){
-	// 	this.showQuote();
-	// }
   }
 };
 </script>
@@ -51,5 +48,8 @@ button{
 	border-radius: 5px;
 	color: white;
 	margin-top: 10px; 
+}
+button:focus {
+  outline: 0;
 }
 </style>
