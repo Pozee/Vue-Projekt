@@ -3,7 +3,7 @@
     <div class="form">
       <br />
       <input class="form-control" type="text" v-model="newThanks" style="text-align: center" placeholder="Add thanks..." /> 
-      <button @click="addThanks">Thank you!</button>
+      <button @click="addThanks">Add</button>
 
       <div>
         <br />

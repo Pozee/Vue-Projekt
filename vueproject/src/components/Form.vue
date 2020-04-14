@@ -79,7 +79,7 @@
       <h4>/nedan ska "activities" visas när tiden på timern är slut, de syns just nu men tänker att de ska vara hidden eller disabled kanske?/</h4>
 
       <button
-        @click="showQuote(), activeBtn = 'btn1'"
+        @click="showKanyeQuote(), activeBtn = 'btn1'"
         :class="{active: activeBtn === 'btn1' }"
       >Daily quote</button>
       <button
@@ -87,7 +87,7 @@
         :class="{active: activeBtn === 'btn2' }"
       >Today I'm thankful for</button>
 
-      <API2 v-show="showKanyeQ" class="api2" @fetchKanyeQuote="showQuote($event)" />
+      <API2 v-show="showKanyeQ" class="api2" @fetchKanyeQuote="showKanyeQuote($event)" />
 
       <API3
         v-show="showThanks"
@@ -135,7 +135,7 @@ export default {
       this.showKanyeQ = false;
       this.activeBtn;
     },
-    showQuote(kanye) {
+    showKanyeQuote(kanye) {
       this.showKanyeQ = true;
       this.showThanks = false;
       this.addQuote = kanye;

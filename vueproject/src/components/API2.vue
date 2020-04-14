@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="quotes">
-      <button @click="showQuote">Kanye quote</button>
+      <button @click="showKanyeQuote">Kanye quote</button>
       <br />
       <br />
       <div class="quoteBox" v-if="show">
@@ -25,7 +25,7 @@ export default {
     };
   },
   methods: {
-    showQuote() {
+    showKanyeQuote() {
       axios
         .get("https://api.kanye.rest/")
         .then(response => {
