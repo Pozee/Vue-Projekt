@@ -1,8 +1,12 @@
 <template>
   <div>
-    <button class="btn btn-primary" @click="getJoke">Get joke</button>
-    <div class="center">
-      <p class="joke">{{ joke }}</p>
+    <div class="jokes">
+      <button @click="getJoke">Get joke</button>
+      <br />
+      <br />
+      <div class="center" v-if="show">
+        <p class="joke">{{ joke }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -12,7 +16,8 @@ const jokeUrl = "https://icanhazdadjoke.com/";
 
 export default {
   data: () => ({
-    joke: ""
+    joke: "",
+    show: true
   }),
   methods: {
     async getJoke() {
@@ -24,6 +29,8 @@ export default {
       try {
         let response = await this.$http.get(jokeUrl, config);
         this.joke = response.data.joke;
+        this.$emit("getJokeQuote", this.joke);
+        this.show = true;
       } catch (error) {
         console.log("Something went wrong", error);
       }
@@ -39,5 +46,14 @@ export default {
 }
 .joke {
   font-weight: 700;
+}
+button {
+  background-color: lightskyblue;
+  border-radius: 5px;
+  color: white;
+  margin-top: 10px;
+}
+button:focus {
+  outline: 0;
 }
 </style>

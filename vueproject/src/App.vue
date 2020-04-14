@@ -25,7 +25,4 @@ export default {
   margin-top: 0px;
 }
 
-#API2 {
-  margin-top: 450px;
-}
 </style>

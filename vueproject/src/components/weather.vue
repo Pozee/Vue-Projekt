@@ -1,8 +1,6 @@
 <template>
   <div>
-    <button class="weatherBtn btn btn-primary" @click="getWeather">
-      Get weather
-    </button>
+    <button @click="getWeather">Get weather</button>
     <div class="center">
       <div class="weather-wrapper" v-show="model">
         <div class="weather-info">
@@ -38,6 +36,7 @@ export default {
           iconCode: response.data.data[0].weather.icon
         };
         this.iconSrc = `https://www.weatherbit.io/static/img/icons/${this.model.iconCode}.png`;
+        this.$emit("getThisWeather", this.data);
       } catch (error) {
         console.log("Something went wrong", error);
       }
@@ -76,5 +75,15 @@ div > p {
 }
 .location {
   font-size: 1.5em;
+}
+
+button{
+	background-color: lightskyblue;
+	border-radius: 5px;
+	color: white;
+	margin-top: 10px; 
+}
+button:focus {
+  outline: 0;
 }
 </style>

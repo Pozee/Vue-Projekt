@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="quotes">
-      <button class="btn btn-primary" @click="showKanyeQuote">
-        Kanye quote
-      </button>
+      <button @click="showKanyeQuote">Kanye quote</button>
       <br />
       <br />
       <div class="quoteBox" v-if="show">
@@ -39,22 +37,22 @@ export default {
         .catch(error => {
           console.log(error);
         });
-    }
+	},
   }
 };
 </script>
 
 <style>
-button {
-  background-color: lightskyblue;
-  border-radius: 5px;
-  color: white;
-  margin-top: 10px;
+button{
+	background-color: lightskyblue;
+	border-radius: 5px;
+	color: white;
+	margin-top: 10px; 
+}
+.joke {
+  font-weight: 700;
 }
 button:focus {
   outline: 0;
-}
-.quote {
-  font-weight: 700;
 }
 </style>
