@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <button class="btn btn-primary" :disabled="!formIsValid" @click.prevent="addTask">Add Task</button> &nbsp;
+      <button :disabled="!formIsValid" @click.prevent="addTask">Add Task</button> &nbsp;
     </form>
 
     <div v-if="show">
@@ -73,15 +73,28 @@
       <br />GOOD LUCK TODAY!
       <br />
       <br />
-      <button class="btn btn-primary" @click="taskDone">Done</button>
+      <button @click="taskDone">Done</button>
       <br />
       <br />
       <h4>/nedan ska "activities" visas när tiden på timern är slut, de syns just nu men tänker att de ska vara hidden eller disabled kanske?/</h4>
 
-      <div class="apis">
-        <API2 class="api2" />
-        <API3 class="api3" />
-      </div>
+      <button
+        @click="showKanyeQuote(), activeBtn = 'btn1'"
+        :class="{active: activeBtn === 'btn1' }"
+      >Daily quote</button>
+      <button
+        @click="showThankful(), activeBtn = 'btn2'"
+        :class="{active: activeBtn === 'btn2' }"
+      >Today I'm thankful for</button>
+
+      <API2 v-show="showKanyeQ" class="api2" @fetchKanyeQuote="showKanyeQuote($event)" />
+
+      <API3
+        v-show="showThanks"
+        class="api3"
+        @fetchthankyou="fetchThanks($event)"
+        @addthankyou="addThanks($event)"
+      />
     </div>
   </div>
 </template>
@@ -108,10 +121,28 @@ export default {
       descrIsTouched: false,
       taskIsTouched: false,
       timeIsTouched: false,
-      getThanks: ""
+      getThanks: "",
+      addThankU: "",
+      addQuote: "",
+      showThanks: false,
+      showKanyeQ: false,
+      activeBtn: ""
     };
   },
   methods: {
+    showThankful() {
+      this.showThanks = true;
+      this.showKanyeQ = false;
+      this.activeBtn;
+    },
+    showKanyeQuote(kanye) {
+      this.showKanyeQ = true;
+      this.showThanks = false;
+      this.addQuote = kanye;
+    },
+    addThanks(thanksss) {
+      this.addThankU = thanksss;
+    },
     fetchThanks(thankss) {
       this.getThanks = thankss;
     },
@@ -154,7 +185,6 @@ export default {
   mounted() {
     this.checkLS();
   },
-
   computed: {
     //TASK VALIDATION
     taskIsValid() {
@@ -216,31 +246,39 @@ h4 {
 .error {
   color: red;
 }
-
 .success {
   color: green;
 }
-
 form {
   width: 70vw;
   position: fixed;
   left: 15%;
 }
-
 label {
   position: fixed;
   left: 15%;
 }
-
-.apis {
+button {
+  background-color: lightskyblue;
+  border-radius: 5px;
+  color: white;
+  margin: 0 5px 0 5px;
+}
+.active {
+  border-bottom: 2px solid blue;
+  color: white;
+}
+button:focus {
+  outline: 0;
+}
+/* .apis {
   display: flex;
   justify-content: center;
 }
-
 .api2 {
   margin-right: 10px;
 }
 .api3 {
   margin-left: 10px;
-}
+} */
 </style>
