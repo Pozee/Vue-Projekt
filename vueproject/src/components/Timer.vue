@@ -27,9 +27,9 @@
         </g>
       </svg>
       <span class="base-timer__label">{{ formattedTimeLeft }}</span>
-      <img src="../assets/pause.svg" class="knappar" @click="pauseTimer" />
-      <img src="../assets/play.svg" class="knappar" @click="startTimer" />
-      <img src="../assets/nonstop.svg" class="knappar" @click="stopTimer" />
+       <button @click="pauseTimer" class="knappar"> Paus </button>
+      <button @click="startTimer" class="knappar"> Play </button>
+      <button @click="stopTimer" class="knappar"> Reset </button>
       <!-- <button class="btn btn-primary" @click="startTimer">Start</button>
       <button class="btn btn-primary" @click="pauseTimer">Pause</button>
       <button class="btn btn-primary" @click="stopTimer">Stop</button> -->
@@ -150,6 +150,8 @@ export default {
   margin-right: 0.3rem;
   margin-top: 1rem;
   cursor: pointer;
+  border-radius: 5px;
+  background-color: #2c3e50
 }
 
 .knappar :hover {
