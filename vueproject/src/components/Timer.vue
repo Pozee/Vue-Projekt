@@ -27,13 +27,13 @@
         </g>
       </svg>
       <span class="base-timer__label">{{ formattedTimeLeft }}</span>
-      <img src="/assets/pause.svg" class="knappar" @click="pauseTimer" />
-      <img src="/assets/play.svg" class="knappar" @click="startTimer" />
-      <img src="/assets/nonstop.svg" class="knappar" @click="stopTimer" />
+      <img src="/pause.svg" class="knappar" @click="pauseTimer" />
+      <img src="../assets/play.svg" class="knappar" @click="startTimer" />
+      <img src="../assets/nonstop.svg" class="knappar" @click="stopTimer" />
       <!-- <button class="btn btn-primary" @click="startTimer">Start</button>
       <button class="btn btn-primary" @click="pauseTimer">Pause</button>
       <button class="btn btn-primary" @click="stopTimer">Stop</button> -->
-    </div class"hej">
+    </div>
   </div>
 </template>
 <script>
