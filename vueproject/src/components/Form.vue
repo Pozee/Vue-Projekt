@@ -321,6 +321,7 @@ h4 {
   color: green;
 }
 
+
 /* form {
   width: 70vw;
   position: fixed;
@@ -355,7 +356,16 @@ button:focus {
   margin-left: auto;
   margin-right: auto;
 }
-
+@media ( max-width: 500px){
+  button{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+}
 /* .apis {
   display: flex;
   flex-direction: row;

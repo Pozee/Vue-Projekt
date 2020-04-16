@@ -21,7 +21,7 @@ footer{
     
     height: 4em;
     font-weight: 300;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     width: 100%;
    

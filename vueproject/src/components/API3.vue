@@ -3,7 +3,7 @@
     <div class="form">
       <br />
       <input class="form-control" type="text" v-model="newThanks" style="text-align: center" placeholder="Add thanks..." /> 
-      <button @click="addThanks">Add</button>
+      <button class="addButton" @click="addThanks">Add</button>
 
       <div>
         <br />
@@ -57,17 +57,14 @@ export default {
 </script>
 
 <style>
-.form {
-  width: 50vw;
-  position: fixed;
-  left: 25%;
+
+.addButton{
+  background-color: rgb(65, 184, 131);
+  border-radius: 5px;
+  color: white;
+  margin: 5px 5px 0 5px;
 }
-button{
-	background-color: lightskyblue;
-	border-radius: 5px;
-	color: white;
-}
-button:focus {
+.addButton:focus {
   outline: 0;
 }
 </style>

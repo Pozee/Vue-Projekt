@@ -1,20 +1,14 @@
 <template>
   <div id="app">
-    <div>
-      <app-header />
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <div>
-      <Form />
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <div>
-      <app-footer />
-    </div>
+    <app-header />
+      <Form class="Form"/>
+    <app-footer />
+    
+    
+      
+    
+      
+    
     
   </div>
   
@@ -46,7 +40,17 @@ export default {
   margin-top: 0px;
 
 }
+.Form{
+  padding-top: 10px;
+  padding-bottom: 70px;
+}
+ @media(max-width: 500px){
+  .Form{
+    padding-top: 10px;
+    padding-bottom: 70px;
 
+  }
+} 
 
 </style>
 

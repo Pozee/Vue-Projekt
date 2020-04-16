@@ -38,8 +38,8 @@
 </template>
 <script>
 const FULL_DASH_ARRAY = 283;
-const WARNING_THRESHOLD = 900;
-const ALERT_THRESHOLD = 300;
+const WARNING_THRESHOLD = 5;
+const ALERT_THRESHOLD = 3;
 
 const COLOR_CODES = {
   info: {
@@ -55,7 +55,7 @@ const COLOR_CODES = {
   }
 };
 
-const TIME_LIMIT = 5;
+const TIME_LIMIT = 10;
 
 export default {
   data() {
@@ -162,8 +162,8 @@ export default {
 }
 .base-timer {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 15rem;
+  height: 15rem;
   font-family: Avenir, Helvetica, Arial, sans-serif;
 
   &__svg {
@@ -204,8 +204,8 @@ export default {
 
   &__label {
     position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 15rem;
+    height: 15rem;
     top: 0;
     display: flex;
     align-items: center;
