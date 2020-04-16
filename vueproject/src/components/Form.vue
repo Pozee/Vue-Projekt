@@ -325,7 +325,8 @@ h4 {
 label {
   position: fixed;
   left: 15%;
-} 
+} */
+
 .Done{
   background-color: rgb(226, 158, 11);
   border-radius: 5px;
@@ -352,7 +353,7 @@ button:focus {
   
 }
 .form1{
-  width: 70vw;
+  width: 40vw;
   position: relative;
   justify-content: center;
   margin-left: auto;
