@@ -1,28 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+      <app-header />
+      <Form class="formComp" />
+      <app-footer />
+    </div>
+  </div>  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Form from "./components/Form.vue";
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Form,
+   'app-header': Header,
+   'app-footer': Footer,
+  },
+};
 </script>
 
 <style>
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
+
+}
+
+.formComp{
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+@media(max-width: 500px){
+    .formComp{
+    margin-top: 25px;
+	margin-bottom: 70px;
+    }
+    
 }
 </style>
+
