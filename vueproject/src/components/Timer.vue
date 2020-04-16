@@ -1,5 +1,6 @@
 <template>
   <div class="center">
+  <p>hej</p>
     <div class="base-timer">
       <svg
         class="base-timer__svg"
