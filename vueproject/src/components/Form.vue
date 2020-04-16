@@ -75,6 +75,7 @@
       <strong>Estimated execution time:&nbsp;</strong>
       <a class ="task">{{ time }}</a> hours!
       <br />
+      <br>  
       <strong>
         GOOD LUCK
         TODAY!
@@ -322,10 +323,10 @@ h4 {
   position: fixed;
   left: 15%;
 }*/
-/* label {
-  position: fixed;
-  left: 15%;
-}  */
+label {
+  position: relative;
+  float: left;
+} 
 
 .Done{
   background-color: rgb(226, 158, 11);
@@ -353,12 +354,12 @@ button:focus {
   
 }
 .form1{
-  width: 40vw;
+  width: 100vw;
   position: relative;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-}
+} 
 @media ( max-width: 500px){
 .apiButtons{
 	margin-top:-40px;
@@ -371,11 +372,22 @@ button:focus {
     margin-right: auto;
     
   }
+    .form-group {
+    width: 80vw;
+  }
 
 }
   .addtask {
     background-color: rgb(226, 158, 11);
+    margin-top: 2rem;
   }
+
+  .form-group {
+    width: 40vw;
+    margin: 0 auto;
+    margin-bottom: 0;
+  }
+
 /* .apis {
   display: flex;
   flex-direction: row;

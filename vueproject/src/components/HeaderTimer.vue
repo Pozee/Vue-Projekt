@@ -211,7 +211,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
+    font-size: 3rem;
   }
 
   .btn {
