@@ -1,5 +1,6 @@
 <template>
   <div class="center">
+  <p>hej</p>
     <div class="base-timer">
       <svg
         class="base-timer__svg"
@@ -34,7 +35,6 @@
       <button class="btn btn-primary" @click="pauseTimer">Pause</button>
       <button class="btn btn-primary" @click="stopTimer">Stop</button> -->
     </div>
-    <p>hej</p>
   </div>
 </template>
 <script>
