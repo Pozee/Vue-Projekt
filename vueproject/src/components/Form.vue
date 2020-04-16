@@ -60,7 +60,7 @@
         </div>
       </div>
 
-      <button :disabled="!formIsValid" @click.prevent="addTask">Add Task</button> &nbsp;
+      <button :disabled="!formIsValid" @click.prevent="addTask" class="addtask">Add Task</button> &nbsp;
     </form>
 
     <div v-if="show">
@@ -322,10 +322,10 @@ h4 {
   position: fixed;
   left: 15%;
 }*/
-label {
+/* label {
   position: fixed;
   left: 15%;
-} */
+}  */
 
 .Done{
   background-color: rgb(226, 158, 11);
@@ -371,7 +371,11 @@ button:focus {
     margin-right: auto;
     
   }
+
 }
+  .addtask {
+    background-color: rgb(226, 158, 11);
+  }
 /* .apis {
   display: flex;
   flex-direction: row;
