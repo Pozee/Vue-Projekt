@@ -1,6 +1,6 @@
 <template>
     <header>
-      <h1 class="text" >{{head}}</h1>  
+      <h1 class="headerText">{{head}}</h1>  
     </header>
 </template>
 
@@ -19,15 +19,20 @@ header{
     background-color:  rgb(65, 184, 131);
     height: 4em;
     font-weight: 700;
-    margin-bottom: 100px;
 }
-.text{
-    padding: 10px;
+	.headerText{
+	padding-top: 10px;
 }
 @media(max-width: 500px){
     header{
         font-weight: 100;
     }
+	.headerText{
+	font-size: 2em;
+	padding-top: 10px;
+}
     
 }
+
+
 </style>

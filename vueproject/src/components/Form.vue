@@ -92,7 +92,7 @@
 
       <!--lägga in en v-show eller v-if som visar apin när timer = 0 så att de inte syns innan -->
       
-      <div v-if="isBreak">
+      <div class="apiButtons" v-if="isBreak">
       <button
         @click="newKanye(), activeBtn = 'btn1'"
         :class="{active: activeBtn === 'btn1' }"
@@ -326,12 +326,13 @@ h4 {
   width: 70vw;
   position: fixed;
   left: 15%;
-} */
+}
 
-/* label {
+label {
   position: fixed;
   left: 15%;
 } */
+
 button {
   background-color: rgb(65, 184, 131);
   border-radius: 5px;
@@ -357,8 +358,11 @@ button:focus {
   margin-right: auto;
 }
 @media ( max-width: 500px){
+.apiButtons{
+	margin-top:-40px;
+}
   button{
-    margin: 20px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     margin-left: auto;

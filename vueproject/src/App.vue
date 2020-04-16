@@ -1,14 +1,10 @@
 <template>
   <div id="app">
-    <app-header />
-      <Form class="Form"/>
-    <app-footer />
-    
-    
-      
-    
-      
-    
+    <div>
+      <app-header />
+      <Form class="formComp" />
+      <app-footer />
+    </div>
     
   </div>
   
@@ -40,17 +36,18 @@ export default {
   margin-top: 0px;
 
 }
-.Form{
-  padding-top: 10px;
-  padding-bottom: 70px;
+
+.formComp{
+	margin-top: 25px;
+	margin-bottom: 100px;
 }
- @media(max-width: 500px){
-  .Form{
-    padding-top: 10px;
-    padding-bottom: 70px;
 
-  }
-} 
-
+@media(max-width: 500px){
+    .formComp{
+    margin-top: 25px;
+	margin-bottom: 50px;
+    }
+    
+}
 </style>
 
