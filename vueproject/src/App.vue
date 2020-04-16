@@ -45,7 +45,7 @@ export default {
 @media(max-width: 500px){
     .formComp{
     margin-top: 25px;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
     }
     
 }

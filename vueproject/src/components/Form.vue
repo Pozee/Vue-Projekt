@@ -81,7 +81,7 @@
       </strong>
       <br />
       <br />
-      <button @click="taskDone">Done</button>
+      <button class="Done" @click="taskDone">Done</button>
       <br />
       <br />
 
@@ -332,6 +332,15 @@ label {
   position: fixed;
   left: 15%;
 } */
+.Done{
+  background-color: rgb(153, 16, 16);
+  border-radius: 5px;
+  color: white;
+  margin: 0 5px 0 5px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
 
 button {
   background-color: rgb(65, 184, 131);

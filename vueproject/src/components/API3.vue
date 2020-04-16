@@ -67,4 +67,9 @@ export default {
 .addButton:focus {
   outline: 0;
 }
+
+.form {
+  margin-bottom: 8rem;
+  margin-top: 2rem;
+}
 </style>

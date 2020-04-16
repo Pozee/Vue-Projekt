@@ -57,4 +57,8 @@ button{
 button:focus {
   outline: 0;
 }
+
+.quotes {
+margin-bottom: 8rem;
+}
 </style>

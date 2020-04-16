@@ -60,4 +60,8 @@ button {
 button:focus {
   outline: 0;
 }
+
+.jokes {
+  margin-bottom: 8rem;
+}
 </style>

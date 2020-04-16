@@ -71,6 +71,8 @@ div > p {
 .center {
   display: flex;
   justify-content: center;
+  margin-bottom: 8rem;
+  margin-top: 2rem;
 }
 .temp {
   margin-top: 0.2em;
