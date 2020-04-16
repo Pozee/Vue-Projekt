@@ -131,7 +131,6 @@ import jokeApi from "./jokeApi.vue";
 import HeaderTimer from "./HeaderTimer.vue";
 import API2 from "./API2.vue";
 import API3 from "./API3.vue";
-
 export default {
   name: "Form",
   components: {
@@ -251,11 +250,9 @@ export default {
       }
     }
   },
-
   mounted() {
     this.checkLS();
   },
-
   computed: {
     //TASK VALIDATION
     taskIsValid() {
@@ -320,14 +317,11 @@ h4 {
 .success {
   color: green;
 }
-
-
 /* form {
   width: 70vw;
   position: fixed;
   left: 15%;
 }
-
 label {
   position: fixed;
   left: 15%;
@@ -339,9 +333,7 @@ label {
   margin: 0 5px 0 5px;
   margin-left: auto;
   margin-right: auto;
-
 }
-
 button {
   background-color: rgb(65, 184, 131);
   border-radius: 5px;
@@ -386,7 +378,6 @@ button:focus {
   align-content: center;
   margin: 2em;
 } */
-
 /* .api2 {
   margin-right: 10px;
 }
