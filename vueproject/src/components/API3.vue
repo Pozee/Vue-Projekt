@@ -2,9 +2,10 @@
   <div>
     <div class="form">
       <br />
+      <span>
       <input class="form-control" type="text" v-model="newThanks" style="text-align: center" placeholder="Add thanks..." /> 
       <button class="addButton" @click="addThanks">Add</button>
-
+      </span>
       <div>
         <br />
         <p v-if="posting">Posting...</p>

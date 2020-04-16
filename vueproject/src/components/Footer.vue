@@ -1,6 +1,6 @@
 <template>
     <footer>
-      <small> {{foot}} </small>  
+      <small class="footText"> {{foot}} </small>  
     </footer>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
     data(){
     return {
-        foot:"© Break Management 2020"
+        foot:"© Break Manager 2020"
     }
 }
 }
@@ -27,5 +27,8 @@ footer{
     
     
 } 
+.footText{
+    padding-top: 40px;
+}
 
 </style>

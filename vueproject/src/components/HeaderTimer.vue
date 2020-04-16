@@ -122,6 +122,7 @@ export default {
     onTimesUp() {
       clearInterval(this.timerInterval);
       this.$emit("breakCheck", true);
+      
     },
 
     startTimer() {

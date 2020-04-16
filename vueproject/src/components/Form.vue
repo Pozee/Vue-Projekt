@@ -66,13 +66,13 @@
     <div v-if="show">
       <HeaderTimer @breakCheck="isItBreak($event)"/>
       <br />
-      <strong>Task:</strong>
+      <strong>Task: &nbsp;</strong>
       <a class ="task">{{ task }}</a>
       <br />
-      <strong>Description:</strong>
+      <strong>Description:&nbsp;</strong>
       <a class ="task">{{ description }}</a>
       <br />
-      <strong>Estimated execution time:</strong>
+      <strong>Estimated execution time:&nbsp;</strong>
       <a class ="task">{{ time }}</a> hours!
       <br />
       <strong>
@@ -81,7 +81,7 @@
       </strong>
       <br />
       <br />
-      <button class="Done" @click="taskDone">Done</button>
+      <button class="Done" @click="taskDone">Change Task</button>
       <br />
       <br />
 
@@ -321,13 +321,13 @@ h4 {
   width: 70vw;
   position: fixed;
   left: 15%;
-}
+}*/
 label {
   position: fixed;
   left: 15%;
-} */
+} 
 .Done{
-  background-color: rgb(153, 16, 16);
+  background-color: rgb(226, 158, 11);
   border-radius: 5px;
   color: white;
   margin: 0 5px 0 5px;
