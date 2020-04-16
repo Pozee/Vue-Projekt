@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="quotes">
-      <button @click="showKanyeQuote">Kanye quote</button>
+      <!-- <button @click="showKanyeQuote">Kanye quote</button> -->
       <br />
       <br />
       <div class="quoteBox" v-if="show">
-        <p class="quote">{{ kanyeQuote.quote }}</p>
+        <p class="joke">{{ kanyeQuote.quote }}</p>
       </div>
     </div>
   </div>
@@ -18,6 +18,9 @@ export default {
   props: {
     msg: String
   },
+  mounted() {
+    //this.showKanyeQuote();
+  },
   data() {
     return {
       kanyeQuote: "",
@@ -29,7 +32,6 @@ export default {
       axios
         .get("https://api.kanye.rest/")
         .then(response => {
-          console.log(response.data);
           this.kanyeQuote = response.data;
           this.$emit("fetchKanyeQuote", this.kanyeQuote);
           this.show = true;

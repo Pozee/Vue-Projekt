@@ -55,13 +55,15 @@ const COLOR_CODES = {
   }
 };
 
-const TIME_LIMIT = 2700;
+const TIME_LIMIT = 5;
 
 export default {
   data() {
     return {
       timePassed: 0,
-      timerInterval: null
+      timerInterval: null,
+      break: false
+
     };
   },
 
@@ -119,6 +121,7 @@ export default {
   methods: {
     onTimesUp() {
       clearInterval(this.timerInterval);
+      this.$emit("breakCheck", true);
     },
 
     startTimer() {
@@ -133,6 +136,7 @@ export default {
       clearInterval(this.timerInterval);
       this.timerInterval = null;
       this.timePassed = 0;
+      this.$emit("breakCheck", false);
     }
   }
 };

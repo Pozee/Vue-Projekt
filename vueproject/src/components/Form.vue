@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form1">
     <form v-if="!show">
       <div>
         <div class="form-group">
@@ -40,6 +40,7 @@
         </div>
 
         <div class="form-group">
+          
           <label>
             Est. time to execute (h)
             <small
@@ -63,47 +64,51 @@
     </form>
 
     <div v-if="show">
-      <HeaderTimer />
-      <br />Task:
-      <a>{{ task }}</a>
-      <br />Description:
-      <a>{{ description }}</a>
-      <br />Estimated execution time:
-      <a>{{ time }}</a> hours!
-      <br />GOOD LUCK
-      TODAY!
+      <HeaderTimer @breakCheck="isItBreak($event)"/>
+      <br />
+      <strong>Task:</strong>
+      <a class ="task">{{ task }}</a>
+      <br />
+      <strong>Description:</strong>
+      <a class ="task">{{ description }}</a>
+      <br />
+      <strong>Estimated execution time:</strong>
+      <a class ="task">{{ time }}</a> hours!
+      <br />
+      <strong>
+        GOOD LUCK
+        TODAY!
+      </strong>
       <br />
       <br />
-      <button class="btn btn-primary" @click="taskDone">Done</button>
+      <button @click="taskDone">Done</button>
       <br />
       <br />
+
       <!-- <h4></h4>
         /nedan ska "activities" visas när tiden på timern är slut, de syns just
         nu men tänker att de ska vara hidden eller disabled kanske?/
       </h4>-->
 
       <!--lägga in en v-show eller v-if som visar apin när timer = 0 så att de inte syns innan -->
-
+      
+      <div v-if="isBreak">
       <button
-        @click="showKanyeQuote(), activeBtn = 'btn1'"
+        @click="newKanye(), activeBtn = 'btn1'"
         :class="{active: activeBtn === 'btn1' }"
-      >Daily quote</button>
+      >Kanye quote</button>
       <button
         @click="showThankful(), activeBtn = 'btn2'"
         :class="{active: activeBtn === 'btn2' }"
       >Today I'm thankful for</button>
-
-      <button
-        @click="showJokeQuote(), activeBtn = 'btn3'"
-        :class="{active: activeBtn === 'btn3' }"
-      >Joke</button>
+<!-- tog bort showJokeQuote(), -->
+      <button @click="getNewJoke(),activeBtn = 'btn3'" :class="{active: activeBtn === 'btn3' }">Joke</button>
 
       <button
         @click="getWeather(), activeBtn = 'btn4'"
         :class="{active: activeBtn === 'btn4' }"
       >Weather</button>
-
-      <API2 v-show="showKanyeQ" class="api2" @fetchKanyeQuote="showKanyeQuote($event)" />
+      <API2 ref="getNewKanye" v-show="showKanyeQ" class="api2" @fetchKanyeQuote="showKanyeQuote($event)" />
 
       <API3
         v-show="showThanks"
@@ -112,8 +117,10 @@
         @addthankyou="addThanks($event)"
       />
 
-      <jokeApi v-show="showJoke" @getJokeQuote="showJokeQuote($event)" />
+      <jokeApi ref="newJoke" v-show="showJoke" @getJokeQuote="showJokeQuote($event)"/>
       <weather v-show="thisWeather" @getThisWeather="getWeather($event)" />
+    </div>
+    
     </div>
   </div>
 </template>
@@ -124,6 +131,7 @@ import jokeApi from "./jokeApi.vue";
 import HeaderTimer from "./HeaderTimer.vue";
 import API2 from "./API2.vue";
 import API3 from "./API3.vue";
+
 export default {
   name: "Form",
   components: {
@@ -134,7 +142,8 @@ export default {
     weather
   },
   props: {
-    msg: String
+    msg: String,
+     // getJoke()
   },
   data() {
     return {
@@ -155,10 +164,17 @@ export default {
       addJoke: "",
       showJoke: false,
       addWeather: "",
-      thisWeather: false
+      thisWeather: false,
+      isBreak: false
     };
+    
   },
   methods: {
+    isItBreak(value) {
+      if(value) {
+        this.isBreak = true;
+      } else this.isBreak = false;
+    },
     getWeather(weather) {
       this.addWeather = weather;
       this.thisWeather = true;
@@ -166,12 +182,15 @@ export default {
       this.showThanks = false;
       this.showKanyeQ = false;
     },
-    showJokeQuote(joke) {
-      this.addJoke = joke;
+    showJokeQuote() {
+      //this.addJoke = joke;
       this.showJoke = true;
       this.showThanks = false;
       this.showKanyeQ = false;
       this.thisWeather = false;
+    },
+    getNewJoke() {
+     this.$refs.newJoke.getJoke();
     },
     showThankful() {
       this.showThanks = true;
@@ -186,6 +205,9 @@ export default {
       this.thisWeather = false;
       this.showJoke = false;
       this.addQuote = kanye;
+    },
+    newKanye(){
+      this.$refs.getNewKanye.showKanyeQuote();
     },
     addThanks(thanksss) {
       this.addThankU = thanksss;
@@ -229,6 +251,7 @@ export default {
       }
     }
   },
+
   mounted() {
     this.checkLS();
   },
@@ -297,27 +320,40 @@ h4 {
 .success {
   color: green;
 }
-form {
+
+/* form {
   width: 70vw;
   position: fixed;
   left: 15%;
-}
-label {
+} */
+
+/* label {
   position: fixed;
   left: 15%;
-}
+} */
 button {
-  background-color: lightskyblue;
+  background-color: rgb(65, 184, 131);
   border-radius: 5px;
   color: white;
   margin: 0 5px 0 5px;
 }
 .active {
-  border-bottom: 2px solid blue;
-  color: white;
+  
+  color:black;
 }
 button:focus {
   outline: 0;
+}
+.task{
+  font-weight: 400;
+  
+}
+.form1{
+  width: 70vw;
+  position: relative;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* .apis {
@@ -326,12 +362,12 @@ button:focus {
   justify-content: center;
   align-content: center;
   margin: 2em;
-}
+} */
 
-.api2 {
+/* .api2 {
   margin-right: 10px;
 }
 .api3 {
   margin-left: 10px;
-} */
+} */ 
 </style>

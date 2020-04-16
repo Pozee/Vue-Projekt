@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="getWeather">Get weather</button>
+    <!-- <button @click="getWeather">Get weather</button> -->
     <div class="center">
       <div class="weather-wrapper" v-show="model">
         <div class="weather-info">
@@ -23,6 +23,10 @@ export default {
     model: true,
     iconSrc: null
   }),
+  mounted() {
+    this.getWeather();
+    
+  },
   methods: {
     async getWeather() {
       try {
