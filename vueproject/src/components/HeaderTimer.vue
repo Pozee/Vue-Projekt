@@ -114,9 +114,9 @@ export default {
     }
   },
 
-  created() {
-    this.startTimer();
-  },
+  // created() {
+  //   this.startTimer();
+  // },
 
   methods: {
     onTimesUp() {
