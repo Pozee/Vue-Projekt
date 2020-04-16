@@ -5,12 +5,9 @@
       <Form class="formComp" />
       <app-footer />
     </div>
-    
-  </div>
-  
+  </div>  
 </template>
-<!---snygga till det här ovan --->
-<!---snygga till det här ovan --->
+
 <script>
 import Form from "./components/Form.vue";
 import Header from "./components/Header.vue";
@@ -38,7 +35,7 @@ export default {
 }
 
 .formComp{
-	margin-top: 100px;
+	margin-top: 50px;
 	margin-bottom: 100px;
 }
 

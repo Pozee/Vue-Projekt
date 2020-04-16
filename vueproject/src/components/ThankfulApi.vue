@@ -3,15 +3,20 @@
     <div class="form">
       <br />
       <span>
-      <input class="form-control" type="text" v-model="newThanks" style="text-align: center" placeholder="Add thanks..." /> 
-      <button class="addButton" @click="addThanks">Add</button>
+        <input
+          class="form-control"
+          type="text"
+          v-model="newThanks"
+          style="text-align: center"
+          placeholder="Add thanks..."
+        />
+        <button class="addButton" @click="addThanks">Add</button>
       </span>
       <div>
         <br />
         <p v-if="posting">Posting...</p>
         <p v-for="ty in thanks" :key="ty.name">{{ ty.name }}</p>
       </div>
-
     </div>
   </div>
 </template>
@@ -27,7 +32,7 @@ export default {
     return {
       thanks: [],
       posting: false,
-      newThanks: "",
+      newThanks: ""
     };
   },
   methods: {
@@ -52,14 +57,13 @@ export default {
           this.posting = false;
           this.$emit("addthankyou", this.newThanks);
         });
-    },
+    }
   }
 };
 </script>
 
 <style>
-
-.addButton{
+.addButton {
   background-color: rgb(65, 184, 131);
   border-radius: 5px;
   color: white;
@@ -72,5 +76,14 @@ export default {
 .form {
   margin-bottom: 8rem;
   margin-top: 2rem;
+  width: 40vw;
+  margin: 0 auto;
+}
+
+@media (max-width: 500px) {
+  .form {
+    width: 70vw;
+    margin: 0 auto;
+  }
 }
 </style>

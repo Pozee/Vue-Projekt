@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="quotes">
-      <!-- <button @click="showKanyeQuote">Kanye quote</button> -->
       <br />
       <br />
       <div class="quoteBox" v-if="show">
@@ -17,9 +16,6 @@ export default {
   name: "API2",
   props: {
     msg: String
-  },
-  mounted() {
-    //this.showKanyeQuote();
   },
   data() {
     return {

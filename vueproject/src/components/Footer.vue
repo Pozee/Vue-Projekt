@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style scoped>
+
 footer{
     
     background-color:  rgb(65, 184, 131);
@@ -28,7 +29,7 @@ footer{
     
 } 
 .footText{
-    padding-top: 40px;
+    padding: 10px;
 }
 
 </style>

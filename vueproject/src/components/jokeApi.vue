@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="jokes">
-      <!-- <button @click="getJoke">Get joke</button> -->
       <br />
       <br />
       <div class="center" v-if="show">
@@ -19,9 +18,6 @@ export default {
     joke: "",
     show: true
   }),
-  mounted() {
-    //this.getJoke();
-  },
   methods: {
     async getJoke() {
       let config = {
