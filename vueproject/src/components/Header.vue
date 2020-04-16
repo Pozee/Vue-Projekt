@@ -24,12 +24,9 @@ header{
 	padding-top: 10px;
 }
 @media(max-width: 500px){
-    header{
-        font-weight: 100;
-    }
 	.headerText{
 	font-size: 2em;
-	padding-top: 10px;
+	padding-top: 15px;
 }
     
 }
